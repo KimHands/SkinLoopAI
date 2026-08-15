@@ -28,24 +28,35 @@ data/
 └─ seed_28days.json          # 28일치 생활습관·피부 기록과 완료 실험 샘플
 
 docs/
-└─ seed_validation.md        # 샘플 데이터와 분석 기능의 내부 검증 결과
+├─ seed_validation.md        # 샘플 데이터와 분석 기능의 내부 검증 결과
+├─ model_evaluation.md       # 28일 합성 데이터 내부 성능평가
+└─ integration_contract.md   # 백엔드 연동 입력·출력 계약 초안
 
 scripts/
 ├─ seed_generator.py         # 피부 점수 계산식을 적용한 샘플 데이터 생성
+├─ evaluate_model.py         # 시간순 내부 성능평가
 └─ validate_seed.py          # 데이터 형식과 전체 분석 결과 검증
 
 src/
+├─ __init__.py
+├─ skin_score.py             # 공통 피부 점수 계산
+├─ validation.py             # 계산 모듈 공통 입력 검증
 ├─ habit_pattern.py          # Spearman 상관계수와 시차 기반 영향 요인 분석
 └─ whatif.py                 # Ridge 회귀 기반 습관 변경 시나리오 비교
+
+tests/                       # 계산 모듈과 시드 데이터 자동 테스트
 
 .gitignore                   # GitHub에 올리지 않을 파일 설정
 README.md                    # 프로젝트 개요
 requirements.txt             # Python 패키지 목록
+requirements-dev.txt         # 테스트 패키지 목록
 ```
 
 ## 현재 구현 범위
 
-현재 피부 점수 계산, 영향 요인 분석, What-if 계산, 샘플 데이터 생성 및 검증이 구현되어 있습니다.
+현재 피부 점수 계산, 입력 검증, 영향 요인 분석, What-if 계산, 샘플 데이터 생성 및 자동 검증이 구현되어 있습니다.
+
+검증은 `python -m pytest`, `python scripts/validate_seed.py`, `python scripts/evaluate_model.py`로 실행합니다.
 
 LLM 결과 문장화와 실제 서비스 API 연결은 추후 진행할 예정입니다.
 
