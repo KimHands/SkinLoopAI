@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skinloop-ai"
+version = "0.1.0"
+description = "SkinLoop AI 계산 모듈 (피부 점수, 습관 패턴 분석, What-if)"
+readme = "README.md"
+requires-python = ">=3.10"
+# 런타임 의존성. 정본은 requirements.txt이며 동일한 하한을 사용한다.
+dependencies = [
+    "numpy>=1.26.4",
+    "pandas>=2.2.2",
+    "scipy>=1.14.1",
+    "scikit-learn>=1.9.0",
+]
+
+# 주 배포 방식은 백엔드가 src/를 vendoring(복사)하는 것이다.
+# 이 pyproject는 로컬/개발용 `pip install .`(또는 -e) 대안을 제공할 뿐이다.
+# packages를 ["src"]로 고정해 설치 후에도 import 경로가 `from src.*` 그대로 유지된다.
+[tool.setuptools]
+packages = ["src"]

@@ -1,4 +1,14 @@
-numpy==1.26.4
-pandas==2.2.2
-scipy==1.14.1
-scikit-learn==1.9.0
+# 런타임 의존성 (src/ 계산 모듈용)
+#
+# 백엔드(FastAPI)가 src/를 vendoring해 같은 프로세스에서 import하므로,
+# 정확한 == 핀은 백엔드 의존성과 충돌하기 쉽다. 아래는 하한만 지정한다.
+#
+# 검증 근거: 아래 두 조합 모두에서 pytest 35건 + scripts/validate_seed.py
+# + scripts/evaluate_model.py 결과가 동일하게 통과했다.
+#   - numpy 1.26.4 / pandas 2.2.2 / scipy 1.14.1 / scikit-learn 1.9.0 (문서 기준 환경)
+#   - numpy 2.5.2  / pandas 3.0.5 / scipy 1.18.0 / scikit-learn 1.9.0 (2026-08-19 재검증)
+# pandas는 2.x→3.x 메이저 점프에서도 동일 결과라 상한을 두지 않는다.
+numpy>=1.26.4
+pandas>=2.2.2
+scipy>=1.14.1
+scikit-learn>=1.9.0
