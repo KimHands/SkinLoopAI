@@ -12,6 +12,11 @@ env/
 .env.*
 !.env.example
 
+# 패키지 빌드 산출물 (pyproject.toml, pip install .)
+build/
+dist/
+*.egg-info/
+
 # 테스트 및 분석 도구 캐시
 .pytest_cache/
 .mypy_cache/
