@@ -1,5 +1,7 @@
 # SkinLoop AI
 
+> 이 저장소는 보관 상태입니다. 코드와 이력은 [KimHands/skinloop](https://github.com/KimHands/skinloop)의 `skinloop-ai/`로 옮겼습니다.
+
 생활습관 기록과 피부 상태의 연관성을 분석하고, 습관 변화에 따른 피부 점수 변화를 비교하는 SkinLoop의 AI 모듈입니다.
 
 ## 주요 기능
